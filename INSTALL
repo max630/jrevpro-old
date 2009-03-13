@@ -1,0 +1,9 @@
+               Java Decompiler / Disassembler
+                 http://jrevpro.sourceforge.net
+
+To Install:
+==========
+	Set the environment variable JREVERSE_HOME to point to this directory,
+to which you have extracted the tarball.
+	Add JREVERSE_HOME/bin to the PATH enviroment variable.
+	
