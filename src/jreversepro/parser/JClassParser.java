@@ -272,15 +272,7 @@ public class JClassParser implements AppConstants {
      */
     private boolean supportedMajorMinor(short major,
                                         short minor)  {
-        if (major == 45) {
-            return (minor >= 3);
-        }
-
-        if (major >= 46 && major <= 48) {
-            return true;
-        }
-
-        return false;
+		return true;
     }
 
 
