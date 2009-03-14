@@ -246,7 +246,14 @@ public final class JAttribute {
             manipLineNumberTable(aDis);
         } else if (attrName.equals(LOCALVARIABLETABLE)) {
             manipLocalVariableTable(aDis);
-        }
+        } else {
+			int len = aDis.readInt();
+			System.err.println("Unknown code attribute: name=" + attrName
+										+ ", len=" + len);
+			for (int i = 0; i < len; i++) {
+				aDis.readByte();
+			}
+		}
     }
 
     /**

@@ -627,7 +627,14 @@ public class JClassParser implements AppConstants {
             JAttribute.manipSynthetic(mDis);
         } else if (attrName.compareTo(JAttribute.DEPRECATED) == 0) {
             JAttribute.manipDeprecated(mDis);
-        }
+        } else {
+			int len = mDis.readInt();
+			System.err.println("Unknown field attribute: name=" + attrName
+										+ ", len=" + len);
+			for (int i = 0; i < len; i++) {
+				mDis.readByte();
+			}
+		}
     }
 
     /**
@@ -686,7 +693,14 @@ public class JClassParser implements AppConstants {
             JAttribute.manipSynthetic(mDis);
         } else if (attrName.compareTo(JAttribute.DEPRECATED) == 0) {
             JAttribute.manipDeprecated(mDis);
-        }
+        } else {
+			int len = mDis.readInt();
+			System.err.println("Unknown method attribute: name=" + attrName
+										+ ", len=" + len);
+			for (int i = 0; i < len; i++) {
+				mDis.readByte();
+			}
+		}
     }
 
     /**
