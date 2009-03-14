@@ -1502,11 +1502,11 @@ public class JRunTimeFrame implements KeyWords,
                 String fieldType = cpInfo.getFieldType(fieldPtr);
 
                 //Field Name and Type respectively
-                if (objName.equals(THIS)) {
+                /*if (objName.equals(THIS)) {
                     myStack.push(fieldName, fieldType, VALUE);
-                } else {
+                } else {*/
                     myStack.push(objName + "." + fieldName, fieldType, VALUE);
-                }
+                /*}*/
                 break;
              }
             case 181: { // putfield
@@ -1523,13 +1523,13 @@ public class JRunTimeFrame implements KeyWords,
                 String fieldName = cpInfo.getFieldName(fieldPtr);
                 String fieldType = cpInfo.getFieldType(fieldPtr);
 
-                if (objname.equals(THIS)) {
+                /*if (objname.equals(THIS)) {
                     statement = fieldName + " = "
                              +  Helper.getValue(fieldValue, fieldType);
-                } else {
+                } else {*/
                     statement = objname + "." + fieldName + " = "
                              +  Helper.getValue(fieldValue, fieldType);
-                }
+                /*}*/
                 precedence = L_EVAL;
                 break;
             }
@@ -1885,7 +1885,7 @@ public class JRunTimeFrame implements KeyWords,
                 //Code for super constructor here.
               }
             } else {
-                statement = methodName;
+                statement = objRef + "." + methodName;
             }
         }
         precedence = L_REF;

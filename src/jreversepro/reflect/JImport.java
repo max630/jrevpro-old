@@ -74,7 +74,7 @@ public class JImport {
     public static String getClassName(String fullQualifiedName) {
         String aFullName = fullQualifiedName.replace('/', '.');
         int dotIndex = aFullName.lastIndexOf(".");
-        if (dotIndex != -1)  {
+        if (dotIndex != -1 && !aFullName.startsWith("com.stanfy.contest"))  {
             return aFullName.substring(dotIndex + 1);
         } else {
             return aFullName;
