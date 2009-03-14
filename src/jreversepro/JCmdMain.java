@@ -243,7 +243,7 @@ public class JCmdMain
             Helper.log("Successfully loaded class : " + inputFile);
         } catch (ClassParserException cpex) {
             System.err.println("Failed to load class : " + inputFile);
-            System.err.println(cpex);
+            cpex.printStackTrace(System.err);
         } catch (IOException ioex) {
             // Extreme case.
             System.err.println("Failed to load class : " + inputFile);
@@ -307,7 +307,7 @@ public class JCmdMain
                                                     + output);
                     }
                 } catch (Exception ex) {
-                    System.out.println(ex);
+					ex.printStackTrace(System.out);
                 }
                 return true;
             } else if (opcode.equals(CMD_DECOMPILE)
@@ -338,7 +338,7 @@ public class JCmdMain
                                                 + output);
                     }
                 } catch (Exception ex) {
-                    System.out.println(ex);
+					ex.printStackTrace(System.out);
                 }
                 return true;
             } else if (opcode.equals(CMD_VIEWPOOL)
