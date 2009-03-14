@@ -405,7 +405,19 @@ public class JClassInfo implements KeyWords {
             try {
                 jre.genCode();
             } catch (Exception ex) {
-              ex.printStackTrace();
+			  if (!getBytecode) {
+				JReverseEngineer jre2 = (JReverseEngineer)
+                    new JDisAssembler(method,
+                            this.getConstantPool());
+				try {
+					jre2.genCode();
+					method.forceBytecode = true;
+				} catch (Exception e) {
+					ex.printStackTrace();
+				}
+			  } else {
+				ex.printStackTrace();
+			  }
             }
         }
     }

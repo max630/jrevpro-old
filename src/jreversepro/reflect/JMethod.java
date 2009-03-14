@@ -137,6 +137,8 @@ public class JMethod extends JMember
      **/
     private JClassInfo    mInfoClass;
 
+	public boolean forceBytecode;
+
     /** First instruction in the method pool **/
     JInstruction firstIns;
     
@@ -156,6 +158,7 @@ public class JMethod extends JMember
 
         throwsClasses  = new ArrayList(2);
         firstIns = null;
+		this.forceBytecode = false;
     }
 
     
@@ -783,7 +786,7 @@ public class JMethod extends JMember
 
         
         sb.append(
-             getBytecode 
+             (getBytecode || this.forceBytecode)
                 ?
             getStringifiedBytecode()
                 :
