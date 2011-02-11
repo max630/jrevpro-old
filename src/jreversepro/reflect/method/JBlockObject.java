@@ -140,7 +140,9 @@ public abstract class JBlockObject {
                 sb.append(((JBlockObject)o).toString(indent+defaultIndent));
             } else if (o instanceof JLineOfCode) {
                 sb.append(((JLineOfCode)o).toString(indent+defaultIndent));
-            }
+            } else {
+				sb.append(getUnknown(o));
+			}
         }
 
         //Print block exit code
@@ -169,6 +171,9 @@ public abstract class JBlockObject {
                 locs.add(((JBlockObject)o).getFlattenedCode(_indent+defaultIndent));            
             else if (o instanceof JLineOfCode)
                 locs.add(((JLineOfCode)o).toString(_indent+defaultIndent));
+			else {
+				locs.add(getUnknown(o));
+			}
         }
 
         //Adds block exit code as a JLineOfCode
@@ -177,4 +182,8 @@ public abstract class JBlockObject {
         
         return locs;
     }
+
+	private String getUnknown(Object o) {
+		return "/* unknown code of type " + o.getClass().getCanonicalName() + " */";
+	}
 }
